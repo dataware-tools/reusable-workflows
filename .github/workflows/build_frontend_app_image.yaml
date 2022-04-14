@@ -36,4 +36,4 @@ jobs:
           BUILD_OPTION=""
           [[ -n "${NPM_TOKEN}" ]] && echo "//${NPM_REGISTRY##*://}/:_authToken=${NPM_TOKEN}" > /tmp/.npmrc && BUILD_OPTION="$BUILD_OPTION --secret id=npmrc,src=/tmp/.npmrc"
           [[ -n "${TARGET_STAGE}" ]] && BUILD_OPTION="$BUILD_OPTION --target $TARGET_STAGE"
-          docker build ${BUILD_OPTION} -t ${{ inputs.image-name }}:{{ inputs.image-tag }} .
+          docker build ${BUILD_OPTION} -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
