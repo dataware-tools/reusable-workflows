@@ -76,11 +76,11 @@ jobs:
         with:
           context: ${{ inputs.docker-context }}
           file: ${{ inputs.docker-file }}
-          target-stage: ${{ inputs.target-stage }}
+          target: ${{ inputs.target-stage }}
           tags: ${{ inputs.image-tag }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-          secrets: |
+          secret-files: |
             "npmrc=/tmp/.npmrc"
 
       - # Temp fix
